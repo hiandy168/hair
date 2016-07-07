@@ -15,7 +15,6 @@ class AdminModel extends BaseModel
                 'message' => '登录成功'
             );
             
-            
         }else{
             return array(
                 'result' => false,
@@ -28,8 +27,8 @@ class AdminModel extends BaseModel
         return $this->add($data);
     }
     
-    public function adminList() {
-        return $this->where('DEL_FLG = "0"')
+    public function adminList($page = '') {
+        return $this->where('DEL_FLG = "0"')->page($page)
         ->select();
     }
     
@@ -47,6 +46,10 @@ class AdminModel extends BaseModel
     
     public function adminSelect($where){
         return $this->where($where)->select();
+    }
+    
+    public function get_admin_count() {
+        return count($this->where('DEL_FLG = "0"')->select());
     }
 }
 

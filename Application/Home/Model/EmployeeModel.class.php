@@ -3,13 +3,32 @@ namespace Home\Model;
 
 use Home\Model\BaseModel;
 
+/**
+ * 员工模板类
+ * @date: 2016/07/06 16:11:43
+ * @author: chenjianqiang98
+ */
 class EmployeeModel extends BaseModel
 {
-    public function employeeAdd($data){
-        return $this->add($data);
+    /**
+    * 添加员工信息
+    * @date: 2016/07/06 16:12:14
+    * @author: chenjianqiang98
+    * @param: $data array 员工信息
+    *         $add_type 0:添加一条数据 1：批量添加数据
+    * @return: ID值
+    */
+    public function employeeAdd($data,$add_type = '0'){
+        
+        if ($add_type == '0'){
+            return $this->add($data);
+        }else {
+            return $this->addAll($data);
+        }
     }
     
     public function employeeList() {
+        
         return $this->where('employee.DEL_FLG = "0"')
                     ->join('LEFT JOIN employee_position ON employee.EMPLOYEE_POSITION_ID = employee_position.EMPLOYEE_POSITION_ID AND employee_position.DEL_FLG = "0"')
                     ->join('LEFT JOIN employee_position_big ON employee_position_big.EMPLOYEE_POSITION_BIG_ID = employee_position.EMPLOYEE_POSITION_BIG_ID AND employee_position.DEL_FLG = "0"')
@@ -26,11 +45,14 @@ class EmployeeModel extends BaseModel
                         'employee.EMPLOYEE_ID_CARD' => 'EMPLOYEE_ID_CARD',
                         'employee.EMPLOYEE_BANK_NO' => 'EMPLOYEE_BANK_NO',
                         'employee.EMPLOYEE_BIRTHDAY' => 'EMPLOYEE_BIRTHDAY',
-                        'employee.EMPLOYEE_WORK_DATE' => 'EMPLOYEE_WORK_DATE',
+                        'employee.EMPLOYEE_WORK_DATE' => 'EMPLOYEE_WORK_DATE'
                     ))->select();
+        
+        
     }
     
     public function employeeUpdate($where,$data) {
+        
         return $this->where($where)->save($data);
     }
     

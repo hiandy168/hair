@@ -34,7 +34,6 @@ class BaseAction extends Controller
                 exit();
             }else{
                 $this->assign('action_list', I('session.admin')['action_list']);
-                //$this->assign('base_url', explode('/', $_SERVER['REQUEST_URI'])[count(explode('/', $_SERVER['REQUEST_URI'])) -1]);
                 $this->assign('base_url', $_SERVER['REQUEST_URI']);
             }
         }

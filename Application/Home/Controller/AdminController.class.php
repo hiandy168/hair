@@ -57,15 +57,29 @@ class AdminController extends BaseAction
     }
     
     public function adminList(){
+
         $admin = new AdminModel('admin');
         
-        $adminList = $admin->adminList();
-        if ($adminList <> false){
-            $this->assign('adminlist',$adminList);
-            $this->display('admin:adminList');
+        $page_count = 20;
+        $page = '';
+        
+        if (I('get.page')<> ''){
+            $this->page_init($admin->get_admin_count(),$page_count,I('get.page'));
+            $page = I('get.page').','.$page_count;
         }else{
-            $this->error('系统错误');
+            $this->page_init($admin->get_admin_count(),$page_count,1);
+            $page = '1,'.$page_count;
         }
+        
+        $page_content = $this->page_display();
+        
+        
+        $adminList = $admin->adminList($page);
+        
+        $this->assign('adminCount',count($adminList));
+        $this->assign('page_content',$page_content);
+        $this->assign('adminlist',$adminList);
+        $this->display('admin:adminList');
     }
     
     public function toAdminAdd(){

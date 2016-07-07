@@ -106,7 +106,7 @@ var Script = function () {
 
     var setColor = function (color) {
         $('#style_color').attr("href", "css/style-" + color + ".css");
-    };
+    }
 
 // widget tools
 
@@ -140,4 +140,7 @@ var Script = function () {
     $('.scroller').slimscroll({
         height: 'auto'
     });
+
+
+
 }();

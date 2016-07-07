@@ -7,7 +7,7 @@ class SystemLogModel extends BaseModel
         return $this->add($data);
     }
     
-    public function systemLogList(){
+    public function systemLogList($page=''){
         return $this->join('LEFT JOIN admin AS admin_ins ON system_log.ins_user = admin_ins.admin_id AND admin_ins.DEL_FLG = "0"')
         ->join('LEFT JOIN admin AS admin_upd ON system_log.ins_user = admin_upd.admin_id AND admin_upd.DEL_FLG = "0"')
         ->field(array(
@@ -20,8 +20,15 @@ class SystemLogModel extends BaseModel
             'system_log.UPD_DATE' => 'UPD_DATE',
             'admin_upd.ADMIN_NAME' => 'ADMIN_NAME_UPD'
         ))
+        ->page($page)
         ->where('system_log.DEL_FLG = "0"')
         ->select();
+    }
+    
+    public function get_system_log_count(){
+        
+        $system_log_data = $this->systemLogList();
+        return count($system_log_data);
     }
 }
 
