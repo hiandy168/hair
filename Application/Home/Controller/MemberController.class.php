@@ -351,7 +351,6 @@ class MemberController extends BaseAction
                     'MEMBER_CARD_ID' => $member_card_id,
                     'MEMBER_CARD_NO' => $member_card_no,
                     'MEMBER_CARD_TYPE_ID' => $member_card_type_id,
-                    //'MEMBER_CARD_TYPE_NAME' => $member_card_type,
                     'MEMBER_NAME' => $member_name,
                     'CASH_PAY' => $cash_pay,
                     'UNION_PAY' => $union_pay,
@@ -489,6 +488,7 @@ class MemberController extends BaseAction
         $result = $member_card_type->memberCardTypeAdd($member_card_type_data);
         
         if ($result <> false){
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.MEMBER_TYPE_CARD_ADD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.MEMBER_TYPE_CARD_ADD'),$membar_card_type_name));
             return $this->ajaxReturn(array('result' => true,'message' => '添加成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' => false,'message' => '添加失败!'),'JSON');
@@ -601,6 +601,8 @@ class MemberController extends BaseAction
         $result = $member_card_type->memberCardTypeUpdate($member_card_type_where,$member_card_type_data);
         
         if ($result <> false){
+            
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.MEMBER_TYPE_CARD_UPD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.MEMBER_TYPE_CARD_UPD'),$membar_card_type_name));
             return $this->ajaxReturn(array('result' => true,'message' => '更新成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' => false,'message' => '更新失败!'),'JSON');
@@ -610,8 +612,14 @@ class MemberController extends BaseAction
     public function memberCardTypeDelete(){
         $member_card_type_id = '';
         
+        $member_card_type_name = '';
+        
         if (I('get.member_card_type_id')<> ''){
             $member_card_type_id = I('get.member_card_type_id');
+        }
+        
+        if (I('get.member_card_type_name')<> ''){
+            $member_card_type_name = I('get.member_card_type_name');
         }
         
         $member_card_type_data = array(
@@ -627,6 +635,7 @@ class MemberController extends BaseAction
         $result = $member_card_type->memberCardTypeUpdate($member_card_type_where,$member_card_type_data);
         
         if ($result <> false){
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.MEMBER_TYPE_CARD_DEL') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.MEMBER_TYPE_CARD_DEL'),$member_card_type_name));
             return $this->ajaxReturn(array('result' => true,'message' => '删除成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' => false,'message' => '删除失败!'),'JSON');

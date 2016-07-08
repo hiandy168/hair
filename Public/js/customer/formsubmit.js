@@ -264,3 +264,57 @@ this.form_employee_list_file_submit = function(){
     }
   });
 };
+
+/**
+ * 会员卡类型画面 
+ */
+this.form_card_type_submit = function(){
+  $("#card_type_form").validate({
+    doNotHideMessage: true,
+    errorClass: "error",
+    errorElement: "label",
+    rules: {
+      member_card_type_name:{
+        required: true,
+        maxlength: 200
+      },
+      service_discount:{
+        required: true,
+        digits:true,
+        min:0,
+        max:10
+      },
+      course_discount:{
+        required: true,
+        digits:true,
+        min:0,
+        max:10
+      },
+      comment:{
+        maxlength: 1000
+      }
+    },
+    messages: {
+
+    }
+  });
+  
+  if($('#card_type_form').valid()){
+    
+    $('#card_type_form').ajaxSubmit({
+      dataType: "json",
+      type: "POST",
+      success: function (data) {
+        if (data.result == false) {
+          layer.msg(data.message);
+        } else {
+          layer.msg(data.message);
+          location.href = action_base_dir + "/member/memberCardTypeList";
+        }
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("errorThrown:" + errorThrown);
+      }
+    });
+  }
+};

@@ -47,8 +47,8 @@
                             </td>
                             <td>{$member_card_type.comment}</td>
                             <td>
-                              <button class="btn btn-primary" onClick="cardTypeUpdate('{$member_card_type.member_card_type_id}')">修改</button>
-                              <button class="btn btn-danger" onClick="cardTypeDelete('{$member_card_type.member_card_type_id}')">删除</button>
+                              <button class="btn btn-primary" onClick="toLink('/member/toMemberCardTypeUpdate/','{member_card_type_id:{$member_card_type.member_card_type_id}}')">修改</button>
+                              <button class="btn btn-danger" onClick="ajaxRequest('/member/memberCardTypeDelete/','/member/memberCardTypeList/','{member_card_type_id:{$member_card_type.member_card_type_id},member_card_type_name:\'{$member_card_type.member_card_type_name}\'}','确定删除？')">删除</button>
                             </td>
                           </tr>
                         </volist>
@@ -65,7 +65,7 @@
                       <h4 class="alert-heading">数据不存在！</h4>
                     </div>
                   </if>
-                  <button class="btn btn-primary" onClick = "cardTypeAdd()">添加会员卡类型</button>
+                  <button class="btn btn-primary" onClick = "toLink('/member/toMemberCardTypeAdd/','')">添加会员卡类型</button>
                 </div>
               </div>
             </div>

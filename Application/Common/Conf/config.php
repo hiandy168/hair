@@ -29,6 +29,9 @@ return array(
         'EMPLOYEE_POSITION_ADD' => '员工职位信息添加',
         'EMPLOYEE_POSITION_UPD' => '员工职位信息修改',
         'EMPLOYEE_POSITION_DEL' => '员工职位信息删除',
+        'MEMBER_TYPE_CARD_ADD' => '会员卡类型信息添加',
+        'MEMBER_TYPE_CARD_UPD' => '会员卡类型信息修改',
+        'MEMBER_TYPE_CARD_DEL' => '会员卡类型信息删除',
     ),
     'SYSTEM_LOG_CONTENT_LIST' => array(
         'LOGIN' => '管理员%1登录',
@@ -45,6 +48,9 @@ return array(
         'EMPLOYEE_POSITION_ADD' => '员工职位%1信息添加',
         'EMPLOYEE_POSITION_UPD' => '员工职位%1信息修改',
         'EMPLOYEE_POSITION_DEL' => '员工职位%1信息删除',
+        'MEMBER_TYPE_CARD_ADD' => '会员卡类型%1信息添加',
+        'MEMBER_TYPE_CARD_UPD' => '会员卡类型%1信息修改',
+        'MEMBER_TYPE_CARD_DEL' => '会员卡类型%1信息删除',
     )
 );
 
