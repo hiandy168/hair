@@ -1,32 +1,34 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
 <html>
-  <!--<![endif]-->
-  <!-- BEGIN HEAD -->
   <head>
     <meta charset="utf-8" />
-    <title>秀管家</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style.css" rel="stylesheet" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style-responsive.css" rel="stylesheet" />
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style-default.css" rel="stylesheet" id="style_color" />
+<title>秀管家</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
 
-    <link href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/uniform/css/uniform.default.css" />
-
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/css/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/css/bootstrap-fileupload.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style-responsive.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style-default.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/fancybox/source/jquery.fancybox.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/uniform/css/uniform.default.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/chosen-bootstrap/chosen/chosen.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/jquery-tags-input/jquery.tagsinput.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/clockface/css/clockface.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-datepicker/css/datepicker.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-timepicker/compiled/timepicker.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-colorpicker/css/colorpicker.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-daterangepicker/daterangepicker.css" />
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo (C("WEB_RES_ROOT")); ?>/css/style-customer.css" />
   </head>
-  <!-- END HEAD -->
-  <!-- BEGIN BODY -->
   <body class="fixed-top">
-    <!-- BEGIN HEADER -->
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
 	<!-- BEGIN TOP NAVIGATION BAR -->
 	<div class="navbar-inner">
@@ -68,10 +70,7 @@
 	</div>
 	<!-- END TOP NAVIGATION BAR -->
 </div>
-    <!-- END HEADER -->
-    <!-- BEGIN CONTAINER -->
     <div id="container" class="row-fluid">
-      <!-- BEGIN SIDEBAR -->
       <div class="sidebar-scroll">
         <div class="sidebar-scroll">
 	<div id="sidebar" class="nav-collapse collapse">
@@ -144,7 +143,7 @@
 						<?php if(stripos($action_list,'EmployeeAdd') !== false): ?><li class="<?php echo (stripos($base_url ,'employeeList') !== false or stripos($base_url,'toEmployeePositionList') !== false or stripos($base_url,'toEmployeeAdd') !== false or stripos($base_url,'toEmployeeUpdate') !== false ) ? active: ''; ?>" ><a class="" href="<?php echo (C("ACTION_BASE_DIR")); ?>/employee/employeeList">添加员工</a></li><?php endif; ?>
 						<?php if(stripos($action_list,'MemberCardTypeAdd') !== false): ?><li class="<?php echo (stripos($base_url ,'memberCardTypeList') !== false or stripos($base_url , 'toMemberCardTypeAdd') !== false) ? active: ''; ?>" ><a class="" href="<?php echo (C("ACTION_BASE_DIR")); ?>/member/memberCardTypeList">添加会员卡类型</a></li><?php endif; ?>
 						<?php if(stripos($action_list,'ServiceAdd') !== false): ?><li class="<?php echo stripos($base_url ,'serviceList') !== false ? active: ''; ?>" ><a class="" href="<?php echo (C("ACTION_BASE_DIR")); ?>/service/serviceList">添加服务项目</a></li><?php endif; ?>
-						<?php if(stripos($action_list,'courseList') !== false): ?><li class="<?php echo stripos($base_url ,'serviceList') !== false ? active: ''; ?>" ><a class="" href="<?php echo (C("ACTION_BASE_DIR")); ?>/course/courseList">添加套餐</a></li><?php endif; ?>
+						<?php if(stripos($action_list,'CourseAdd') !== false): ?><li class="<?php echo stripos($base_url ,'courseList') !== false ? active: ''; ?>" ><a class="" href="<?php echo (C("ACTION_BASE_DIR")); ?>/course/courseList">添加套餐</a></li><?php endif; ?>
 						<?php if(stripos($action_list,'ShopInforUpdate') !== false): ?><li class="<?php echo stripos($base_url ,'shopList') !== false ? active: ''; ?>" ><a class="" href="<?php echo (C("ACTION_BASE_DIR")); ?>/shop/shopList">店铺信息修改</a></li><?php endif; ?>
 					</ul>
 				</li><?php endif; ?>
@@ -172,71 +171,65 @@
 	</div>
 </div>
       </div>
-      <!-- END SIDEBAR -->
-      <!-- BEGIN PAGE -->
       <div id="main-content">
-        <!-- BEGIN PAGE CONTAINER-->
         <div class="container-fluid">
-          <!-- BEGIN PAGE HEADER-->
           <div class="row-fluid">
             <div class="span12">
-              <!-- BEGIN PAGE TITLE & BREADCRUMB-->
               <h3 class="page-title">会员卡类型列表</h3>
-              <!-- END PAGE TITLE & BREADCRUMB-->
             </div>
           </div>
-          <!-- END PAGE HEADER-->
-          <!-- BEGIN ADVANCED TABLE widget-->
           <div class="row-fluid">
             <div class="span12">
-              <!-- BEGIN EXAMPLE TABLE widget-->
               <div class="widget">
                 <div class="widget-body">
-                  <table class="table table-striped table-bordered" id="data">
-                    <thead>
-                      <tr>
-                        <th>编号</th>
-                        <th>名称</th>
-                        <th>项目折扣</th>
-                        <th>套餐折扣</th>
-                        <th>状态</th>
-                        <th>备注</th>
-                        <th>操作</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php if(is_array($memberCardTypeList)): $i = 0; $__LIST__ = $memberCardTypeList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$member_card_type): $mod = ($i % 2 );++$i;?><tr class="odd gradeX">
-                          <td><?php echo ($member_card_type["member_card_type_id"]); ?></td>
-                          <td><?php echo ($member_card_type["member_card_type_name"]); ?></td>
-                          <td><?php echo ($member_card_type["service_discount"]); ?></td>
-                          <td><?php echo ($member_card_type["course_discount"]); ?></td>
-                          <td>
-                          	<?php if($member_card_type["is_lock"] == 1): ?>锁定<?php endif; ?>
-                          </td>
-                          <td><?php echo ($member_card_type["comment"]); ?></td>
-                          <td>
-                            <button class="btn btn-primary" onClick="cardTypeUpdate('<?php echo ($member_card_type["member_card_type_id"]); ?>')">修改</button>
-                            <button class="btn btn-danger" onClick="cardTypeDelete('<?php echo ($member_card_type["member_card_type_id"]); ?>')">删除</button>
-                          </td>
-                        </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                    </tbody>
-                  </table>
+                  <?php if($memberCardTypeCount != 0 ): ?><table class="table table-bordered table-hover table-header">
+                      <thead>
+                        <tr>
+                          <th class="span3">编号</th>
+                          <th class="span4">名称</th>
+                          <th class="span2">项目折扣</th>
+                          <th class="span2">套餐折扣</th>
+                          <th class="span2">状态</th>
+                          <th class="span5">备注</th>
+                          <th class="span2">操作</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php if(is_array($memberCardTypeList)): $i = 0; $__LIST__ = $memberCardTypeList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$member_card_type): $mod = ($i % 2 );++$i;?><tr class="odd gradeX">
+                            <td><?php echo ($member_card_type["member_card_type_id"]); ?></td>
+                            <td><?php echo ($member_card_type["member_card_type_name"]); ?></td>
+                            <td><?php echo ($member_card_type["service_discount"]); ?></td>
+                            <td><?php echo ($member_card_type["course_discount"]); ?></td>
+                            <td>
+                            	<?php if($member_card_type["is_lock"] == 1): ?>锁定<?php endif; ?>
+                            </td>
+                            <td><?php echo ($member_card_type["comment"]); ?></td>
+                            <td>
+                              <button class="btn btn-primary" onClick="cardTypeUpdate('<?php echo ($member_card_type["member_card_type_id"]); ?>')">修改</button>
+                              <button class="btn btn-danger" onClick="cardTypeDelete('<?php echo ($member_card_type["member_card_type_id"]); ?>')">删除</button>
+                            </td>
+                          </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                      </tbody>
+                    </table>
+                    <div class="pagination pagination-right">
+                        <ul>
+                            <?php echo ($page_content); ?>
+                        </ul>
+                    </div>
+                  <?php else: ?>
+                    <div class="alert alert-block alert-error fade in">
+                      <button data-dismiss="alert" class="close" type="button">×</button>
+                      <h4 class="alert-heading">数据不存在！</h4>
+                    </div><?php endif; ?>
                   <button class="btn btn-primary" onClick = "cardTypeAdd()">添加会员卡类型</button>
                 </div>
               </div>
-              <!-- END EXAMPLE TABLE widget-->
             </div>
           </div>
-
-          <!-- END ADVANCED TABLE widget-->
         </div>
-        <!-- END PAGE CONTAINER-->
       </div>
-      <!-- END PAGE -->
     </div>
-    <!-- END CONTAINER -->
 
-    <!-- BEGIN FOOTER -->
     <div id="footer">
 </div>
 <div class="body_overlay">
@@ -248,38 +241,58 @@
     </tr>
   </table>
 </div>
-    <!-- END FOOTER -->
 
-    <!-- BEGIN JAVASCRIPTS -->
-    <!-- Load javascripts at bottom, this will reduce page load time -->
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery-1.8.3.min.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.blockui.js"></script>
-    <script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- ie8 fixes -->
-    <!--[if lt IE 9]>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/excanvas.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/respond.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/uniform/jquery.uniform.min.js"></script>
-    <script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/data-tables/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/data-tables/DT_bootstrap.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.scrollTo.min.js"></script>
-
-    <!--common script for all pages-->
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/common-scripts.js"></script>
-
-    <!--script for this page only-->
-    <script type="text/javascript" charset="utf-8">
-      var action_base_dir =   "<?php echo (C("ACTION_BASE_DIR")); ?>";
-    </script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.validate.min.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.form.min.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/layer/layer.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/common.js"></script>
-    <script src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/member.js"></script>
-    <!-- END JAVASCRIPTS -->
+    <script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap/js/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.blockui.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jQuery.dualListBox-1.3.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/uniform/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<!--
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-daterangepicker/date.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+-->
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/fancybox/source/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/flot/jquery.flot.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/flot/jquery.flot.resize.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/flot/jquery.flot.pie.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/flot/jquery.flot.stack.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/assets/flot/jquery.flot.crosshair.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+  var action_base_dir = "<?php echo (C("ACTION_BASE_DIR")); ?>";
+  var web_res_root = "<?php echo (C("WEB_RES_ROOT")); ?>";
+</script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/layer/layer.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/common.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/functions.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/formsubmit.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/login.js"></script>
+<!--
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/admin.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/course.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/employee.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/login.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/member.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/order.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/report.js"></script>
+<script type="text/javascript" src="<?php echo (C("WEB_RES_ROOT")); ?>/js/customer/service.js"></script>
+-->
   </body>
-  <!-- END BODY -->
 </html>

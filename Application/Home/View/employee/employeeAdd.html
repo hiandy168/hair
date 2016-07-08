@@ -20,7 +20,7 @@
             <div class="span12">
               <div class="widget">
                 <div class="widget-body">
-                  <form action="{$Think.config.ACTION_BASE_DIR}/employee/employeeAdd/" class="form-horizontal" id="employee_form">
+                  <form action="{$Think.config.ACTION_BASE_DIR}/employee/employeeAdd/" class="form-horizontal" id="employee_form" method="post" enctype="multipart/form-data">
                     <div class="control-group">
                       <label class="control-label">员工姓名:</label>
                       <div class="controls">
@@ -41,8 +41,8 @@
                     <div class="control-group">
                       <label class="control-label">员工级别</label>
                       <div class="controls">
-                        <select data-placeholder="请选择级别" class="span5" tabindex="-1" id="employee_position_id">
-                          <option value=""></option>
+                        <select data-placeholder="请选择级别" name="employee_position_id" class="span5" tabindex="-1" id="employee_position_id">
+                          <option value="">请选择级别</option>
                           <volist name="employeePositionBigList" id="employee_postion_big">
                             <optgroup label="{$employee_postion_big.employee_position_big_name}">
                               <assign name="employee_postion_big_id" value="$employee_postion_big.employee_position_big_id" />
@@ -55,7 +55,6 @@
                             </optgroup>
                           </volist>
                         </select>
-                        <input type="hidden" name="employee_position_id" value=""/>
                       </div>
                     </div>
                     <div class="control-group">
@@ -106,7 +105,7 @@
           						</div>
           					</div>
                     <div class="form-actions">
-                      <button class="btn btn-large btn-success" type="button" onClick="form_employee_submit();">提交</button>
+                      <button class="btn btn-large btn-success" type="button" onClick="form_employee_submit(this);">提交</button>
                       <button class="btn btn-large" type="button" onClick="javascript:history.go(-1)">返回</button>
                     </div>
                   </form>

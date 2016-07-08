@@ -159,6 +159,8 @@ class EmployeeController extends BaseAction
         $result = $employee ->employeeAdd($data);
         
         if ($result !== false){
+            //系统日志操作
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.EMPLOYEE_ADD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.EMPLOYEE_ADD'),$employee_name));
             return $this->ajaxReturn(array('result' =>true,'message'=>'添加成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' =>false,'message'=>'添加失败!'),'JSON');
@@ -224,6 +226,8 @@ class EmployeeController extends BaseAction
             $employee_id_card = I('post.employee_id_card');
         }
         
+        $employee_name_log = '';
+        
         $employee = new EmployeeModel('employee');
         
         for ($i = 0; $i < count($employee_name); $i++){
@@ -246,9 +250,11 @@ class EmployeeController extends BaseAction
                     'UPD_USER' => I('session.admin')['admin_id'],
                     'DEL_FLG' => '0'
                 );
+                
+                $employee_name_log = $employee_name_log . $employee_name . ',';
             
                 $result = $employee ->employeeAdd($data);
-            
+                
                 if ($result === false){
                     break;
                 }
@@ -256,6 +262,9 @@ class EmployeeController extends BaseAction
         }
         
         if ($result !== false){
+            //系统日志操作
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.EMPLOYEE_LIST_ADD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.EMPLOYEE_LIST_ADD'),substr($employee_name_log, 0 , $employee_name_log.length()-1)));
+            
             return $this->ajaxReturn(array('result' =>true,'message'=>'添加成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' =>false,'message'=>'添加失败!'),'JSON');
@@ -269,6 +278,9 @@ class EmployeeController extends BaseAction
         
         if ($_FILES["employee_list_add_file"]["type"] == 'application/vnd.ms-excel')
         {
+            
+            $employee_name_log = '';
+            
             if ($_FILES["employee_list_add_file"]["error"] > 0)
             {
                 return $this->ajaxReturn(array('result' =>false,'message'=>'文件上传错误!'),'JSON');
@@ -310,6 +322,8 @@ class EmployeeController extends BaseAction
                         
                         $result = $employee ->employeeAdd($data_employee);
                         
+                        $employee_name_log = $employee_name_log . $data[0] . ',';
+                        
                         if ($result === false){
                             break;
                         }
@@ -322,6 +336,7 @@ class EmployeeController extends BaseAction
                 fclose($file);
                 
                 if ($result !== false){
+                    $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.EMPLOYEE_LIST_ADD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.EMPLOYEE_LIST_ADD'),substr($employee_name_log, 0 , $employee_name_log.length()-1)));
                     return $this->ajaxReturn(array('result' =>true,'message'=>'批量添加员工成功!'),'JSON');
                 }else{
                     return $this->ajaxReturn(array('result' =>false,'message'=>'批量添加员工失败!'),'JSON');
@@ -472,6 +487,7 @@ class EmployeeController extends BaseAction
         $result = $employee ->employeeUpdate($where, $data);
         
         if ($result !== false){
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.EMPLOYEE_UPD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.EMPLOYEE_UPD'),$employee_name));
             return $this->ajaxReturn(array('result' =>true,'message'=>'更新成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' =>false,'message'=>'更新失败!'),'JSON');
@@ -482,10 +498,17 @@ class EmployeeController extends BaseAction
     
         //员工ID
         $employee_id = '';
+        
+        //员工姓名
+        $employee_name = '';
     
         //值设定
         if (I('get.employee_id') <> ''){
             $employee_id = I('get.employee_id');
+        }
+        
+        if (I('get.employee_name') <> ''){
+            $employee_name = I('get.employee_name');
         }
     
         $data = array(
@@ -501,6 +524,7 @@ class EmployeeController extends BaseAction
         $result = $employee ->employeeUpdate($where, $data);
         
         if ($result !== false){
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.EMPLOYEE_DEL') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.EMPLOYEE_DEL'),$employee_name));
             return $this->ajaxReturn(array('result' =>true,'message'=>'删除成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result' =>false,'message'=>'删除失败!'),'JSON');

@@ -32,16 +32,30 @@
                         </span>
                       </div>
                       <div class="widget-body">
-                        <assign name="employee_postion_big_id" value="$employee_postion_big.employee_position_big_id" />
-                        <volist name="employeePositionList" id="employee_postion">
-                          <assign name="employee_postion_sub_id" value="$employee_postion.employee_position_big_id" />
-                          <if condition="$employee_postion_big_id == $employee_postion_sub_id">
-                            <input type="hidden" placeholder="" class="span12" name="employee_position_id{$employee_postion_big_count}[]" value="{$employee_postion.employee_position_id}"/>
-                            <input type="text" placeholder="" class="span12" name="employee_position_name{$employee_postion_big_count}[]" value="{$employee_postion.employee_position_name}"/>
-                          </if>
-                        </volist>
-                        <input type="hidden" placeholder="" class="span12" name="employee_position_id{$employee_postion_big_count}[]" value=""/>
-                        <input type="text" placeholder="" class="span12" name="employee_position_name{$employee_postion_big_count}[]" value=""/>
+                        <table class="table">
+                          <tbody id="tbody">
+                            <assign name="employee_postion_big_id" value="$employee_postion_big.employee_position_big_id" />
+                            <volist name="employeePositionList" id="employee_postion">
+                              <assign name="employee_postion_sub_id" value="$employee_postion.employee_position_big_id" />
+                              <if condition="$employee_postion_big_id == $employee_postion_sub_id">
+                                <tr>
+                                  <td>
+                                    <input type="hidden" placeholder="" class="span12" name="employee_position_id{$employee_postion_big_count}[]" value="{$employee_postion.employee_position_id}"/>
+                                    <input type="text" placeholder="" class="span12" name="employee_position_name{$employee_postion_big_count}[]" value="{$employee_postion.employee_position_name}"/>
+                                  </td>
+                                </tr>
+                              </if>
+                            </volist>
+                            <tr>
+                              <td>
+                                <center>
+                                  <button class="btn" type="button" onClick="addRow(this)"><i class="icon-plus"></i></button>
+                                  <button class="btn" type="button" onClick="delRow(this)"><i class="icon-minus"></i></button>
+                                </center>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                         <assign name="employee_postion_big_count" value="$employee_postion_big_count + 1" />
                       </div>
                     </div>

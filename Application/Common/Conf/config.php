@@ -22,6 +22,13 @@ return array(
         'ADMIN_PASSWORD_UPD' => '管理员密码更新',
         'ADMIN_POWER_UPD' => '管理员权限更新',
         'ADMIN_DEL' => '管理员删除',
+        'EMPLOYEE_ADD' => '员工信息添加',
+        'EMPLOYEE_LIST_ADD' => '员工信息批量添加',
+        'EMPLOYEE_UPD' => '员工信息修改',
+        'EMPLOYEE_DEL' => '员工信息删除',
+        'EMPLOYEE_POSITION_ADD' => '员工职位信息添加',
+        'EMPLOYEE_POSITION_UPD' => '员工职位信息修改',
+        'EMPLOYEE_POSITION_DEL' => '员工职位信息删除',
     ),
     'SYSTEM_LOG_CONTENT_LIST' => array(
         'LOGIN' => '管理员%1登录',
@@ -31,6 +38,13 @@ return array(
         'ADMIN_PASSWORD_UPD' => '管理员%1密码更新',
         'ADMIN_POWER_UPD' => '管理员%1权限更新',
         'ADMIN_DEL' => '管理员%1删除',
+        'EMPLOYEE_ADD' => '员工%1信息添加',
+        'EMPLOYEE_LIST_ADD' => '员工信息%1批量添加',
+        'EMPLOYEE_UPD' => '员工%1信息修改',
+        'EMPLOYEE_DEL' => '员工%1信息删除',
+        'EMPLOYEE_POSITION_ADD' => '员工职位%1信息添加',
+        'EMPLOYEE_POSITION_UPD' => '员工职位%1信息修改',
+        'EMPLOYEE_POSITION_DEL' => '员工职位%1信息删除',
     )
 );
 

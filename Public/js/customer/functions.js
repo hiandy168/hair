@@ -69,80 +69,6 @@ this.ajaxRequest = function(url,returnUrl,args,msg){
 };
 
 /**
- * 管理者画面表单提交  
- */
-this.admin_form_submit = function(elem){
-  $("#admin_form").validate({
-    doNotHideMessage: true,
-    errorClass: "error",
-    errorElement: "label",
-    rules: {
-      admin_name:{
-        required:true,
-        maxlength:60,
-        chrengnum:true
-      },
-      admin_mail:{
-        required:true,
-        maxlength:60,
-        email:true
-      },
-      admin_real_name:{
-        required:true,
-        maxlength:45
-      },
-      admin_tel:{
-        required:true,
-        maxlength:45,
-        isMobile:true
-      },
-      admin_old_password:{
-        required:true,
-        maxlength:60,
-        chrengnum:true
-      },
-      admin_new_password:{
-        required:true,
-        maxlength:60,
-        chrengnum:true
-      },
-      readmin_new_password:{
-        required:true,
-        maxlength:60,
-        chrengnum:true,
-        equalTo:"#admin_new_password"
-      }
-    },
-    messages: {
-
-    }
-  });
-  
-  if($('#admin_form').valid()){
-    
-    $('#admin_form').ajaxSubmit({
-      dataType: "json",
-      type: "POST",
-      beforeSubmit: function(){
-        //$(".body_overlay").show(500);
-      },
-      success: function (data) {
-        //$(".body_overlay").hide(500);
-        if (data.result == false) {
-          layer.msg(data.message);
-        } else {
-          layer.msg(data.message);
-          location.href = action_base_dir + "/admin/adminList";
-        }
-      },
-      error: function (XMLHttpRequest, textStatus, errorThrown) {
-        alert("errorThrown:" + errorThrown);
-      }
-    });
-  }
-};
-
-/**
  * 点击父级复选框的时候，子复选框也全部被处理 
  */
 this.checkBoxAll = function(elem){
@@ -178,4 +104,26 @@ this.checkBox = function(elem){
   }
   
   $.uniform.update();
+};
+
+/**
+ * 加一行 
+ */
+this.addRow = function(elem){
+  var dtrow = $(elem).parents("tbody").children().first('tr').clone();
+  dtrow.find("input").val("");
+  dtrow.insertBefore($(elem).parents("tbody").children().last('tr'));
+  return false;
+};
+
+
+/**
+ * 减一行 
+ */
+this.delRow = function(elem){
+  if($(elem).parents("tbody").find('tr').length>2){
+    $(elem).parents("tbody").children().last('tr').prev().remove();
+  }
+  
+  return false;
 };

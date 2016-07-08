@@ -135,6 +135,7 @@ this.form_employee_submit = function(){
 	}
 };
 
+
 this.form_position_submit = function(){
 	$("#employee_position").validate({
 		doNotHideMessage: true,

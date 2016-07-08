@@ -51,8 +51,8 @@
                               <if condition="$employee_status eq '0'"> 在职 <else/> 离职</if>
                             </td>
                             <td>
-                              <button class="btn btn-primary" onClick="employee_update('{$employee.employee_id}')">修改</button>
-                              <button class="btn btn-danger" onClick="employee_delete('{$employee.employee_id}')">删除</i></button>
+                              <button class="btn btn-primary" onClick="toLink('/employee/toEmployeeUpdate/','{employee_id:{$employee.employee_id}}')">修改</button>
+                              <button class="btn btn-danger" onClick="ajaxRequest('/employee/employeeDelete/','/employee/employeeList/','{employee_id:{$employee.employee_id},employee_name:\'{$employee.employee_name}\'}','确定删除？')">删除</i></button>
                             </td>
                           </tr>
                         </volist>
@@ -69,9 +69,9 @@
                       <h4 class="alert-heading">数据不存在！</h4>
                     </div>
                   </if>
-                  <button class="btn btn-primary" onClick = "employeeAdd()">添加员工</button>
-                  <button class="btn btn-primary" onClick = "employeePositionList()">添加员工职位</button>
-                  <button class="btn btn-primary" onClick = "employeeListAdd()">批量导入员工信息</button>
+                  <button class="btn btn-primary" onClick = "toLink('/employee/toEmployeeAdd/','')">添加员工</button>
+                  <button class="btn btn-primary" onClick = "toLink('/employee/toEmployeePositionList/','')">添加员工职位</button>
+                  <button class="btn btn-primary" onClick = "toLink('/employee/toEmployeeListAdd/','')">批量导入员工信息</button>
                 </div>
               </div>
             </div>
