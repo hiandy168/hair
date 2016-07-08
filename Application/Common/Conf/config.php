@@ -7,6 +7,7 @@ return array(
     'WEB_RES_ROOT' => '/hair/Public',
     'ACTION_BASE_DIR' => '/hair/index.php/Home',
     'UPLOAD_BASE_DIR' => '/hair/Uploads/',
+    'COMMON_INCLUDE_BASE_DIR' => 'Application/Home/View/common',
     'URL_CASE_INSENSITIVE'  => true,
     'DB_TYPE'   => 'mysql', 
     'DB_USER'   => 'root', 

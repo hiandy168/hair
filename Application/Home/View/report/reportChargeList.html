@@ -1,46 +1,16 @@
 ﻿<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
 <html>
-  <!--<![endif]-->
-  <!-- BEGIN HEAD -->
   <head>
-    <meta charset="utf-8" />
-    <title>秀管家</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <link href="{$Think.config.WEB_RES_ROOT}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{$Think.config.WEB_RES_ROOT}/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
-    <link href="{$Think.config.WEB_RES_ROOT}/assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
-    <link href="{$Think.config.WEB_RES_ROOT}/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="{$Think.config.WEB_RES_ROOT}/css/style.css" rel="stylesheet" />
-    <link href="{$Think.config.WEB_RES_ROOT}/css/style-responsive.css" rel="stylesheet" />
-    <link href="{$Think.config.WEB_RES_ROOT}/css/style-default.css" rel="stylesheet" id="style_color" />
-
-    <link href="{$Think.config.WEB_RES_ROOT}/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{$Think.config.WEB_RES_ROOT}/assets/uniform/css/uniform.default.css" />
-
+    <include file="Application/Home/View/common/stylefile.html" />
   </head>
-  <!-- END HEAD -->
-  <!-- BEGIN BODY -->
   <body class="fixed-top">
-    <!-- BEGIN HEADER -->
     <include file="Application/Home/View/common/header.html" />
-    <!-- END HEADER -->
-    <!-- BEGIN CONTAINER -->
     <div id="container" class="row-fluid">
-      <!-- BEGIN SIDEBAR -->
       <div class="sidebar-scroll">
         <include file="Application/Home/View/common/sidebar.html" />
       </div>
-      <!-- END SIDEBAR -->
-      <!-- BEGIN PAGE -->
       <div id="main-content">
-        <!-- BEGIN PAGE CONTAINER-->
         <div class="container-fluid">
-          <!-- BEGIN ADVANCED TABLE widget-->
           <div class="row-fluid">
             <div class="span12">
 	          	<div class="widget">
@@ -51,7 +21,6 @@
 	                 </span>
 	              </div>
 	          		<div class="widget-body">
-	                <!--BEGIN TABS-->
 	                <div class="tabbable custom-tab">
 	                    <ul class="nav nav-tabs">
 	                        <li class="active"><a href="#tab_1_1" data-toggle="tab">明细表</a></li>
@@ -99,56 +68,14 @@
 	                        </div>
 	                    </div>
 	                </div>
-	                <!--END TABS-->
 	            	</div>
 	          	</div>
             </div>
         </div>
-        <!-- END PAGE CONTAINER-->
       </div>
-      <!-- END PAGE -->
     </div>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
     <include file="Application/Home/View/common/footer.html" />
-    <!-- END FOOTER -->
-
-    <!-- BEGIN JAVASCRIPTS -->
-    <!-- Load javascripts at bottom, this will reduce page load time -->
-    <script src="{$Think.config.WEB_RES_ROOT}/js/jquery-1.8.3.min.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/jquery.blockui.js"></script>
-    <script type="text/javascript" src="{$Think.config.WEB_RES_ROOT}/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- ie8 fixes -->
-    <!--[if lt IE 9]>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/excanvas.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/respond.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="{$Think.config.WEB_RES_ROOT}/assets/uniform/jquery.uniform.min.js"></script>
-    <script type="text/javascript" src="{$Think.config.WEB_RES_ROOT}/assets/data-tables/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="{$Think.config.WEB_RES_ROOT}/assets/data-tables/DT_bootstrap.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/assets/flot/jquery.flot.js"></script>
-	  <script src="{$Think.config.WEB_RES_ROOT}/assets/flot/jquery.flot.resize.js"></script>
-	  <script src="{$Think.config.WEB_RES_ROOT}/assets/flot/jquery.flot.pie.js"></script>
-	  <script src="{$Think.config.WEB_RES_ROOT}/assets/flot/jquery.flot.stack.js"></script>
-	  <script src="{$Think.config.WEB_RES_ROOT}/assets/flot/jquery.flot.crosshair.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/jquery.scrollTo.min.js"></script>
-
-    <!--common script for all pages-->
-    <script src="{$Think.config.WEB_RES_ROOT}/js/common-scripts.js"></script>
-
-    <!--script for this page only-->
-    <script type="text/javascript" charset="utf-8">
-      var action_base_dir =   "{$Think.config.ACTION_BASE_DIR}";
-    </script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/jquery.validate.min.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/jquery.form.min.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/layer/layer.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/customer/common.js"></script>
-    <script src="{$Think.config.WEB_RES_ROOT}/js/customer/report.js"></script>
-    <!-- END JAVASCRIPTS -->
+    <include file="Application/Home/View/common/scriptfile.html" />
   </body>
-  <!-- END BODY -->
 </html>
 

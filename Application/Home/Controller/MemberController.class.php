@@ -500,8 +500,25 @@ class MemberController extends BaseAction
         
         $member_card_type = new MemberCardTypeModel('member_card_type');
         
-        $member_card_type_list = $member_card_type->memberCardTypeList();
+        $page_count = 20;
+        $page = '';
         
+        $member_card_type_count = $member_card_type->get_member_card_type_count();
+        
+        if (I('get.page')<> ''){
+            $this->page_init($member_card_type_count,$page_count,I('get.page'));
+            $page = I('get.page').','.$page_count;
+        }else{
+            $this->page_init($member_card_type_count,$page_count,1);
+            $page = '1,'.$page_count;
+        }
+        
+        $page_content = $this->page_display();
+        
+        $member_card_type_list = $member_card_type->memberCardTypeList($page);
+        
+        $this ->assign('page_content',$page_content);
+        $this ->assign('memberCardTypeCount',$member_card_type_count);
         $this ->assign('memberCardTypeList',$member_card_type_list);
         
         $this->display('member:cardTypeList');

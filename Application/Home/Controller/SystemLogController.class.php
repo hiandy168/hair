@@ -26,7 +26,7 @@ class SystemLogController extends BaseAction
         $system_log_list = $system_log->systemLogList($page);
         
         $this->assign('page_content',$page_content);
-        $this->assign('systemLogCount',count($system_log_list));
+        $this->assign('systemLogCount',$system_log -> get_system_log_count());
         $this->assign('systemLoglist',$system_log_list);
         $this->display('systemLog:systemLogList');
     }

@@ -13,7 +13,24 @@ class EmployeeController extends BaseAction
         
         $employee = new EmployeeModel('employee');
         
-        $this->assign('data', $employee ->employeeList());
+        $page_count = 20;
+        $page = '';
+        
+        $employeeCount = $employee ->get_employee_count();
+        if (I('get.page')<> ''){
+            $this->page_init($employeeCount,$page_count,I('get.page'));
+            $page = I('get.page').','.$page_count;
+        }else{
+            $this->page_init($employeeCount,$page_count,1);
+            $page = '1,'.$page_count;
+        }
+        
+        $page_content = $this->page_display();
+        $employeeList =$employee -> employeeList($page);
+        
+        $this->assign('page_content',$page_content);
+        $this->assign('employeCount', $employeeCount);
+        $this->assign('employeeList', $employeeList);
         
         $this->display('employee:employeeList');
     }

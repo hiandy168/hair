@@ -63,11 +63,13 @@ class AdminController extends BaseAction
         $page_count = 20;
         $page = '';
         
+        $adminCount = $admin ->get_admin_count();
+        
         if (I('get.page')<> ''){
-            $this->page_init($admin->get_admin_count(),$page_count,I('get.page'));
+            $this->page_init($adminCount,$page_count,I('get.page'));
             $page = I('get.page').','.$page_count;
         }else{
-            $this->page_init($admin->get_admin_count(),$page_count,1);
+            $this->page_init($adminCount,$page_count,1);
             $page = '1,'.$page_count;
         }
         
@@ -76,7 +78,7 @@ class AdminController extends BaseAction
         
         $adminList = $admin->adminList($page);
         
-        $this->assign('adminCount',count($adminList));
+        $this->assign('adminCount',$adminCount);
         $this->assign('page_content',$page_content);
         $this->assign('adminlist',$adminList);
         $this->display('admin:adminList');

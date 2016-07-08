@@ -3,9 +3,6 @@
  */
 
 $(document).ready(function() {
-	if($("input[type=radio], input[type=checkbox]").length > 0){
-		$("input[type=radio], input[type=checkbox]").uniform();	
-	}
 	
 	$("#employee_position_id").on("change", function(event, data){
 	  if(data){

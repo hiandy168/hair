@@ -500,6 +500,27 @@ $(document).ready(function() {
 	if($("input[type=radio], input[type=checkbox]").length > 0){
 		$("input[type=radio], input[type=checkbox]").uniform();	
 	}
+	
+	//画面的弹出，如果弹出画面有radio或者checkbox的话样式设定
+	if($(".fancybox").length>0){
+    $(".fancybox").fancybox({
+      "onComplete" :function(){
+        
+        /*
+        if($("input[name='open_type']").length > 0){
+          $("input[name='open_type']").uniform();
+        }
+        
+        if($("input[name='charge_type']").length > 0){
+          $("input[name='charge_type']").uniform();
+        }
+        */
+        if($("input[type=radio], input[type=checkbox]").length > 0){
+          $("input[type=radio], input[type=checkbox]").uniform(); 
+        }
+      }
+    });
+  }
 });
 
 //**************************************************************** 

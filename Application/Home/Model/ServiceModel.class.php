@@ -9,7 +9,7 @@ class ServiceModel extends BaseModel
         return $this->add($data);
     }
     
-    public function serviceList() {
+    public function serviceList($page) {
         return $this->where('service.DEL_FLG = "0"')
                     ->join(array(
                         'LEFT JOIN service_category ON service_category.CATEGORY_ID = service.CATEGORY_ID AND service_category.DEL_FLG = "0"',
@@ -25,6 +25,7 @@ class ServiceModel extends BaseModel
                         'service.SERVICE_PRICE' => 'SERVICE_PRICE',
                         'service.HAND_PRICE' => 'HAND_PRICE'
                     ))
+                    ->page($page)
                     ->select();
     }
     
@@ -72,6 +73,27 @@ class ServiceModel extends BaseModel
                         'service.HAND_PRICE' => 'HAND_PRICE'
                     ))
                     ->select();
+    }
+    
+    public function get_service_count(){
+        $service_data = $this->where('service.DEL_FLG = "0"')
+                    ->join(array(
+                        'LEFT JOIN service_category ON service_category.CATEGORY_ID = service.CATEGORY_ID AND service_category.DEL_FLG = "0"',
+                        'LEFT JOIN service_type ON service_type.TYPE_ID = service.TYPE_ID AND service_type.DEL_FLG = "0"'
+                    ))
+                    ->field(array(
+                        'service.SERVICE_ID' => 'SERVICE_ID',
+                        'service.SERVICE_NAME' => 'SERVICE_NAME',
+                        'service_category.CATEGORY_ID' => 'CATEGORY_ID',
+                        'service_category.CATEGORY_NAME' => 'CATEGORY_NAME',
+                        'service_type.TYPE_ID' => 'TYPE_ID',
+                        'service_type.TYPE_NAME' => 'TYPE_NAME',
+                        'service.SERVICE_PRICE' => 'SERVICE_PRICE',
+                        'service.HAND_PRICE' => 'HAND_PRICE'
+                    ))
+                    ->select();
+        
+        return count($service_data);
     }
 }
 

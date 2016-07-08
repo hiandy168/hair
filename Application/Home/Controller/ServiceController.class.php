@@ -14,8 +14,25 @@ class ServiceController extends BaseAction
     public function serviceList(){
         $service = new ServiceModel('service');
         
+        $page_count = 20;
+        $page = '';
+        
+        $serviceCount = $service ->get_service_count();
+        
+        if (I('get.page')<> ''){
+            $this->page_init($serviceCount,$page_count,I('get.page'));
+            $page = I('get.page').','.$page_count;
+        }else{
+            $this->page_init($serviceCount,$page_count,1);
+            $page = '1,'.$page_count;
+        }
+        
+        $page_content = $this->page_display();
+        
         $service_list = $service ->serviceList();
         
+        $this->assign('serviceCount',$serviceCount);
+        $this->assign('page_count',$page_content);
         $this->assign('serviceList',$service_list);
         
         $this->display('service:serviceList');

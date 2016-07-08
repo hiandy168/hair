@@ -3,9 +3,6 @@
  */
 
 $(document).ready(function() {
-	if($("input[type=radio], input[type=checkbox]").length > 0){
-		$("input[type=radio], input[type=checkbox]").uniform();	
-	}
 	
 	if($("#service_search").length>0){
 		$("#service_search").fancybox();

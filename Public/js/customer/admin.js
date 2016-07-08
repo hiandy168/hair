@@ -122,7 +122,6 @@ this.admin_delete = function(admin_id,admin_name){
 	layer.confirm('确定删除？', {
 		btn : ['确定', '取消']
 	}, function() {
-		
 		$.ajax({
 			url: action_base_dir + "/admin/adminDelete/admin_id/"+admin_id+"/admin_name/"+admin_name,
 			dataType: "json",
