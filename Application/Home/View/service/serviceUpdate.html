@@ -33,7 +33,7 @@
                     <div class="control-group">
                       <label class="control-label">服务项目类别:</label>
                       <div class="controls">
-                        <select class="chzn-select span5" tabindex="-1"
+                        <select class="span5" tabindex="-1"
                         name="service_type_id">
                           <assign name="obj_type_id" value="$objService.type_id">
                             <volist name="serviceTypeList" id="service_type">
@@ -48,7 +48,7 @@
                     <div class="control-group">
                       <label class="control-label">服务项目类型:</label>
                       <div class="controls">
-                        <select class="chzn-select span5" tabindex="-1"
+                        <select class="span5" tabindex="-1"
                         name="service_category_id">
                           <assign name="obj_category_id"
                           value="$objService.category_id">
@@ -83,7 +83,7 @@
                       class="span5" name="service_no"
                       value="{$objService.service_no}" />
                       <button type="button" class="btn btn-large btn-success"
-                      onClick="form_service_submit()">提交</button>
+                      onClick="form_service_submit(this)">提交</button>
                       <button class="btn btn-large" type="button" onClick="javascript:history.go(-1)">返回</button>
                     </div>
                   </form>

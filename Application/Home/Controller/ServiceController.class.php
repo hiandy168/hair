@@ -29,13 +29,39 @@ class ServiceController extends BaseAction
         
         $page_content = $this->page_display();
         
-        $service_list = $service ->serviceList();
+        $service_list = $service ->serviceList($page);
         
         $this->assign('serviceCount',$serviceCount);
-        $this->assign('page_count',$page_content);
+        $this->assign('page_content',$page_content);
         $this->assign('serviceList',$service_list);
         
         $this->display('service:serviceList');
+    }
+    
+    public function serviceListJson(){
+        $service = new ServiceModel('service');
+        
+        $keyword= '';
+        
+        if (I('get.keyword') <> ''){
+            $keyword = I('get.keyword');
+        }
+        
+        $where = '';
+        if ($keyword <> ''){
+           $where = 'service.SERVICE_NAME LIKE "%'.$keyword.'%"'; 
+        }
+        
+        $field = array(
+            'service.SERVICE_ID' => 'id',
+            'service.SERVICE_NAME' => 'text',
+            'service_category.CATEGORY_ID' => 'CATEGORY_ID',
+            'service_category.CATEGORY_NAME' => 'CATEGORY_NAME',
+            'service.SERVICE_PRICE' => 'SERVICE_PRICE'
+        );
+        $service_list = $service->serviceList('', $where, $field);
+        
+        return $this->ajaxReturn($service_list,'JSON');
     }
     
     public function serviceCommisionList(){
@@ -271,6 +297,7 @@ class ServiceController extends BaseAction
         $result = $service->serviceAdd($service_data);
         
         if ($result <> false) {
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.SERVICE_ADD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.SERVICE_ADD'),$service_name));
             return $this->ajaxReturn(array('result'=>true,'message' => '添加成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result'=>false,'message' => '添加失败!'),'JSON');
@@ -369,6 +396,7 @@ class ServiceController extends BaseAction
         $result = $service->serviceUpdate($service_where, $service_data);
         
         if ($result <> false) {
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.SERVICE_UPD') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.SERVICE_UPD'),$service_name));
             return $this->ajaxReturn(array('result'=>true,'message' => '修改成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result'=>false,'message' => '修改失败!'),'JSON');
@@ -378,10 +406,16 @@ class ServiceController extends BaseAction
     public function serviceDelete(){
         $service_id = '';
         
+        $service_name = '';
+        
         $result = false;
         
         if (I('get.service_id') <> ''){
             $service_id = I('get.service_id');
+        }
+        
+        if (I('get.service_name') <> ''){
+            $service_name = I('get.service_name');
         }
         
         $service_data=array(
@@ -397,6 +431,7 @@ class ServiceController extends BaseAction
         $result = $service->serviceUpdate($service_where, $service_data);
         
         if ($result <> false) {
+            $this->system_log_write(C('SYSTEM_LOG_TYPE_LIST.SERVICE_DEL') , message_replace(C('SYSTEM_LOG_CONTENT_LIST.SERVICE_DEL'),$service_name));
             return $this->ajaxReturn(array('result'=>true,'message' => '删除成功!'),'JSON');
         }else{
             return $this->ajaxReturn(array('result'=>false,'message' => '删除失败!'),'JSON');

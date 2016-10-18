@@ -88,16 +88,12 @@ this.add_category = function(elem){
 		
 		cParentDiv.insertAfter($(".widget").find(".widget-body").children().children().last("div"));
 		
-		//$.uniform.update();
 	}
-	
 };
 
 this.form_service_type_category_submit=function(){
 	
 	//服务项目分类名的验证
-	$()
-	
 	$('#service_type_category').ajaxSubmit({
 		dataType: "json",
 		type: "POST",

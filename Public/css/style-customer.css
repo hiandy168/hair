@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.table th, .table td{
+  padding: 5px;
+}
+
 .table-header thead th{
   background-color: #f9f9f9;
 }
@@ -7,4 +11,111 @@
 .table-hover tbody tr:hover>td, .table-hover tbody tr:hover>th{
   background-color: #4a8bc2;
   color: #FFF;
+}
+
+.table-hover tbody tr:hover table tbody tr td{
+  background-color: #4a8bc2;
+  color: #FFF;
+}
+
+.table .cell_middle{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table .nopadding{
+  padding : 0px;
+  margin-bottom: 0 !important;
+}
+
+.table_inner{
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 38px;
+}
+
+.widget-body .table_inner{
+  margin-bottom: 0 !important;  
+}
+
+.table_inner tbody tr > td{
+  border-left: 0;
+  border-right: 1px solid #DDDDDD;
+}
+
+.table_inner tbody tr > td:last-child{
+  border-right: 0px;
+}
+
+
+.table_inner td.span1,.table_inner th.span1 {
+    float: none;
+    width: 40px;
+    margin-left: 0;
+}
+
+.table_inner td.span2,.table_inner th.span2 {
+    float: none;
+    width: 124px;
+    margin-left: 0
+}
+
+.table_inner td.span3,.table_inner th.span3 {
+    float: none;
+    width: 204px;
+    margin-left: 0
+}
+
+.table_inner td.span4,.table_inner th.span4 {
+    float: none;
+    width: 284px;
+    margin-left: 0
+}
+
+.table_inner td.span5,.table_inner th.span5 {
+    float: none;
+    width: 364px;
+    margin-left: 0
+}
+
+.table_inner td.span6,.table_inner th.span6 {
+    float: none;
+    width: 444px;
+    margin-left: 0
+}
+
+.table_inner td.span7,.table_inner th.span7 {
+    float: none;
+    width: 524px;
+    margin-left: 0
+}
+
+.table_inner td.span8,.table_inner th.span8 {
+    float: none;
+    width: 604px;
+    margin-left: 0
+}
+
+.table_inner td.span9,.table_inner th.span9 {
+    float: none;
+    width: 684px;
+    margin-left: 0
+}
+
+.table_inner td.span10,.table_inner th.span10 {
+    float: none;
+    width: 764px;
+    margin-left: 0
+}
+
+.table_inner td.span11,.table_inner th.span11 {
+    float: none;
+    width: 844px;
+    margin-left: 0
+}
+
+.table_inner td.span12,.table_inner th.span12 {
+    float: none;
+    width: 924px;
+    margin-left: 0
 }

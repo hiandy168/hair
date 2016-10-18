@@ -37,7 +37,6 @@ class BaseAction extends Controller
                 $this->assign('base_url', $_SERVER['REQUEST_URI']);
             }
         }
-        
     }
     
     //系统日志写入

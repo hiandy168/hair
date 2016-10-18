@@ -32,6 +32,9 @@ return array(
         'MEMBER_TYPE_CARD_ADD' => '会员卡类型信息添加',
         'MEMBER_TYPE_CARD_UPD' => '会员卡类型信息修改',
         'MEMBER_TYPE_CARD_DEL' => '会员卡类型信息删除',
+        'SERVICE_ADD' => '服务项目信息添加',
+        'SERVICE_UPD' => '服务项目信息修改',
+        'SERVICE_DEL' => '服务项目信息删除',
     ),
     'SYSTEM_LOG_CONTENT_LIST' => array(
         'LOGIN' => '管理员%1登录',
@@ -51,6 +54,9 @@ return array(
         'MEMBER_TYPE_CARD_ADD' => '会员卡类型%1信息添加',
         'MEMBER_TYPE_CARD_UPD' => '会员卡类型%1信息修改',
         'MEMBER_TYPE_CARD_DEL' => '会员卡类型%1信息删除',
+        'SERVICE_ADD' => '服务项目%1信息添加',
+        'SERVICE_UPD' => '服务项目%1信息修改',
+        'SERVICE_DEL' => '服务项目%1信息删除',
     )
 );
 

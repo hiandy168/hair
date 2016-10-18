@@ -38,22 +38,25 @@ document.onkeydown = function(e){
 };
 
 this.login = function(){
-  if($('#loginForm').valid()){
-    $('#loginForm').ajaxSubmit({
-      dataType: "json",
-      type: "POST",
-      success: function (data) {
-        if (data.result == false) {
-          layer.msg(data.message);
-        } else {
-          layer.msg(data.message);
-          location.href = action_base_dir + "/index/";
-        }
-      },
-      error: function (XMLHttpRequest, textStatus, errorThrown) {
-        alert("errorThrown:" + errorThrown);
-      },
-    });
+  
+  if($('#loginForm').length > 0){
+    if($('#loginForm').valid()){
+      $('#loginForm').ajaxSubmit({
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+          if (data.result == false) {
+            layer.msg(data.message);
+          } else {
+            layer.msg(data.message);
+            location.href = action_base_dir + "/index/";
+          }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert("errorThrown:" + errorThrown);
+        },
+      });
+    }
   }
 };
 
@@ -316,5 +319,144 @@ this.form_card_type_submit = function(){
         alert("errorThrown:" + errorThrown);
       }
     });
+  }
+};
+
+/**
+ * 服务项目管理画面 
+ */
+
+
+this.form_service_type_category_submit=function(){
+  
+  //服务项目分类名的验证
+  $('#service_type_category').ajaxSubmit({
+    dataType: "json",
+    type: "POST",
+    success: function (data) {
+      if (data.result == false) {
+        layer.msg(data.message);
+      } else {
+        layer.msg(data.message);
+        location.href = action_base_dir + "/service/toServiceCategoryProcess";
+      }
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("errorThrown:" + errorThrown);
+    }
+  });
+};
+
+this.form_service_submit = function(){
+  $("#service_form").validate({
+    doNotHideMessage: true,
+    errorClass: "error",
+    errorElement: "label",
+    rules: {
+      service_name:{
+        required: true,
+        maxlength: 255
+      },
+      service_price:{
+        required: true,
+        number:true
+      },
+      hand_price:{
+        number:true
+      },
+    },
+    messages: {
+
+    }
+  });
+  
+  if($('#service_form').valid()){
+    
+    $('#service_form').ajaxSubmit({
+      dataType: "json",
+      type: "POST",
+      success: function (data) {
+        if (data.result == false) {
+          layer.msg(data.message);
+        } else {
+          layer.msg(data.message);
+          location.href = action_base_dir + "/service/serviceList";
+        }
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("errorThrown:" + errorThrown);
+      }
+    });
+  }
+};
+
+/**
+ * 套餐管理画面 
+ */
+
+this.form_course_category_submit=function(elem){
+  $("#course_category").validate({
+    doNotHideMessage: true,
+    errorClass: "error",
+    errorElement: "label",
+    rules: {
+    },
+    messages: {
+
+    }
+  });
+  
+  if($('#course_category').valid()){
+    
+    $('#course_category').ajaxSubmit({
+      dataType: "json",
+      type: "POST",
+      success: function (data) {
+        if (data.result == false) {
+          layer.msg(data.message);
+        } else {
+          layer.msg(data.message);
+          location.href = action_base_dir + "/course/toCourseCategoryProcess";
+        }
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("errorThrown:" + errorThrown);
+      }
+    });
+  }
+};
+
+this.form_course_submit=function(){
+  $("#course_form").validate({
+    doNotHideMessage: true,
+    errorClass: "error",
+    errorElement: "label",
+    rules: {
+    },
+    messages: {
+
+    }
+  });
+  
+  if($('#course_form').valid()){
+    /*
+    $('#course_form').ajaxSubmit({
+      dataType: "json",
+      type: "POST",
+      success: function (data) {
+        if (data.result == false) {
+          layer.msg(data.message);
+        } else {
+          layer.msg(data.message);
+          location.href = action_base_dir + "/course/courseList";
+        }
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("errorThrown:" + errorThrown);
+      }
+    });
+    */
+    $('#course_form').submit();
+    
   }
 };

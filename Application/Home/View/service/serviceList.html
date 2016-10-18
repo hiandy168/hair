@@ -20,7 +20,7 @@
             <div class="span12">
               <div class="widget">
                 <div class="widget-body">
-                  <if condition="$memberCardTypeCount != 0 ">
+                  <if condition="$serviceCount != 0 ">
                     <table class="table table-bordered table-hover table-header">
                       <thead>
                         <tr>
@@ -43,8 +43,8 @@
                             <td>{$service.service_price}</td>
                             <td>{$service.hand_price}</td>
                             <td>
-                              <button class="btn btn-primary" onClick="serviceUpdate('{$service.service_id}')">修改</button>
-                              <button class="btn btn-danger" onClick="serviceDelete('{$service.service_id}')">删除</button>
+                              <button class="btn btn-primary" onClick="toLink('/service/toServiceUpdate/','{service_id:{$service.service_id}}')">修改</button>
+                              <button class="btn btn-danger" onClick="ajaxRequest('/service/serviceDelete/','/service/serviceList/','{service_id:{$service.service_id},service_name:\'{$service.service_name}\'}','确定删除？')">删除</button>
                             </td>
                           </tr>
                         </volist>
@@ -61,8 +61,8 @@
                       <h4 class="alert-heading">数据不存在！</h4>
                     </div>
                   </if>
-                  <button class="btn btn-primary" onClick = "serviceAdd()">添加服务项目</button>
-                  <button class="btn btn-primary" onClick = "serviceTypeCategoryAdd()">添加类型</button>
+                  <button class="btn btn-primary" onClick = "toLink('/service/toServiceAdd/','')">添加服务项目</button>
+                  <button class="btn btn-primary" onClick = "toLink('/service/toServiceCategoryProcess/','')">添加类型</button>
                   <button class="btn btn-primary" onClick = "serviceTypeCategoryAdd()">批量导入服务项目</button>
                 </div>
               </div>

@@ -127,3 +127,22 @@ this.delRow = function(elem){
   
   return false;
 };
+
+/**
+ * 在最后一个文本框得到焦点后在后面追加一个文本框 
+ */
+this.add_text_box = function(elem){
+  
+  var parent_div = $(elem).parent();
+  var num=parent_div.nextAll().length;
+  
+  if(num == 0){
+    
+    var cParentDiv = parent_div.clone();
+    
+    cParentDiv.find("input").val("");
+    
+    cParentDiv.insertAfter($(".widget").find(".widget-body").children().children().last("div"));
+    
+  }
+};

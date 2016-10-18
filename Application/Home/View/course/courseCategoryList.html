@@ -22,22 +22,32 @@
                 <if condition="$dataCount eq 0">
                 	<div class="widget">
                     <div class="widget-body">
-                      <input type="hidden" placeholder="" class="span12" name="category_id[]" />
-		                  <input type="text" placeholder="" class="span12" name="category_name[]" />
+                      <div class="row-fluid">
+                        <div class="span3">    
+                          <input type="hidden" placeholder="" class="span12" name="category_id[]" value="{$course_category.category_id}"/>
+                          <input type="text" placeholder="" class="span12" name="category_name[]" value="{$course_category.category_name}" onfocus ="add_text_box(this);"/>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 <else/>
-                    <div class="widget">
-                      <div class="widget-body">
-                      	<volist name="courseCategoryList" id="course_category">
-                          <input type="hidden" placeholder="" class="span12" name="category_id[]" value="{$course_category.category_id}"/>
-                  				<input type="text" placeholder="" class="span12" name="category_name[]" value="{$course_category.category_name}"/>
-                  			</volist>
+                  <div class="widget">
+                    <div class="widget-body">
+                			<div class="row-fluid">
+                        <volist name="courseCategoryList" id="course_category">
+                          <div class="span3">    
+                            <input type="hidden" placeholder="" class="span12" name="category_id[]" value="{$course_category.category_id}"/>
+                            <input type="text" placeholder="" class="span12" name="category_name[]" value="{$course_category.category_name}" onfocus ="add_text_box(this);"/>
+                          </div>
+                        </volist>
                       </div>
                     </div>
+                  </div>
                 </if>
-                <button type="button" class="btn btn-inverse span12" style="margin:3px 0px 20px 0px;" onClick="add_category()"><i class="icon-plus"></i></button>
-              	<button type="button" class="btn btn-success span2" onClick="form_course_category_submit()" style="margin:3px 0px 0px 0px;">提交</button>
+              	<div class="form-actions">
+                  <button class="btn btn-large btn-success" type="button" onClick="form_course_category_submit(this);">提交</button>
+                  <button class="btn btn-large" type="button" onClick="javascript:history.go(-1)">返回</button>
+                </div>
               </form>
             </div>
           </div>

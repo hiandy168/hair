@@ -477,6 +477,48 @@ $(document).ready(function() {
 		$(".chzn-select").chosen();
 		$(".chzn-select-deselect").chosen({allow_single_deselect:true});
 	}
+	
+	if($("select.select2-select").length>0){
+	  
+	  var select_type = $("select.select2-select").attr("data-select-type");
+	  
+	  var placeholder_text = $("select.select2-select").attr("placeholder");
+	  
+	  if(select_type == "ajax"){
+	    var ajax_url = $("select.select2-select").attr("data-ajax-url");
+	    
+	    var data_type = "json";
+	    
+	    if(typeof($("select.select2-select").attr("data-data-type")) != "undefined"){
+	      data_type = $("select.select2-select").attr("data-data-type");
+	    }
+	    
+  	  $("select.select2-select").select2({
+        placeholder: placeholder_text,
+        ajax : {
+          url : ajax_url,
+          dataType: data_type,
+          delay: 250,
+          data: function (params) {
+            return {
+              keyword: params.term
+            };
+          },
+          processResults: function (data,params) {
+            
+            for(var i=0; i<data.length; i++){
+              data[i]["id"] = data[i]["id"] + "," + data[i]["text"] + "," + data[i]["service_price"];
+            }
+            
+            return {
+              results: data
+            };
+          }
+        }
+      });
+	  }
+	  
+	}
     
 	if ($('table[rel="data_table"]').length > 0) {
 		$('#data').dataTable({
